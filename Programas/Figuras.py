@@ -1,8 +1,7 @@
 import glfw
 from OpenGL.GL import *
 from OpenGL.GLU import *
-
-
+#commit usar 2 primitivas pra hacer una sola figura
 def draw_points():
     """GL_POINTS - Dibuja puntos individuales"""
     glPointSize(10.0)
