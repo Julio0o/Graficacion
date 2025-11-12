@@ -4,7 +4,7 @@ from OpenGL.GLU import *
 from OpenGL.GLUT import *
 import math
 
-# Variable global para rotación
+# Variable
 rotation_angle = 0.0
 
 
