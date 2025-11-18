@@ -5,7 +5,7 @@ from OpenGL.GLU import *
 
 def casita():
     """Dibuja una casa usando GL_QUADS y GL_TRIANGLES"""
-#q
+
     # Cuerpo de la casa usando GL_QUADS
     glBegin(GL_QUADS)
     # Pared principal - amarillo
