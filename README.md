@@ -1,2 +1,49 @@
-# Graficacion
+# Graficación
 Tarea trabajos y proyectos durante el semestre
+# Visualización de Imágenes con OpenCV
+
+## Introducción
+El siguiente código muestra cómo cargar y visualizar una imagen utilizando la librería **OpenCV** en Python. Este proceso es fundamental en el área del procesamiento digital de imágenes, ya que permite manipular y analizar archivos visuales.
+
+## codigo
+```python
+import cv2 as cv
+image = cv.imread('Imagenes/Arbolito.jpeg',0)
+cv.imshow('First Image', image)
+cv.waitKey()
+cv.destroyAllWindows
+```
+
+## Explicación
+
+
+
+```python
+import cv2 as cv
+```
+
+Importa la librería OpenCV, que permite trabajar con imágenes, videos y procesamiento digital.
+Se usa as cv para abreviar su nombre.
+
+```pyhon
+image = cv.imread('Imagenes/Arbolito.jpeg',0)
+```
+Carga la imagen Arbolito.jpeg desde la carpeta Imagenes.
+
+- *cv.imread()* → función para leer imágenes.
+
+- *Primer parámetro*: ruta de la imagen.
+
+- *Segundo parámetro*: modo de lectura.
+
+- *0* → carga la imagen en escala de grises.
+
+Si la imagen no se encuentra, image será None.
+
+## ¿Qué significa el paramtro 0?
+
+|Valor|Modo|Resultado|
+|-|-|-|
+|`0`|**Grayscale**| Carga la imagen en blanco y negro|
+|`1`|**Color (BGR)**|Carga la imagen en color (por defecto)|
+|`-1`| **Unchanged**| Carga la imagen con su alpha si lo tiene|
