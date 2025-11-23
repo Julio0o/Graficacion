@@ -38,9 +38,8 @@ Carga la imagen Arbolito.jpeg desde la carpeta Imagenes.
 
 - *0* → carga la imagen en escala de grises.
 
-Si la imagen no se encuentra, image será None.
 
-## ¿Qué significa el paramtro 0?
+## ¿Qué significa el parametro 0?
 
 |Valor|Modo|Resultado|
 |-|-|-|
