@@ -17,7 +17,7 @@ def crear_arbol_navidad_pixel_art():
     BLANCO = 255
     DORADO = 180
 
-    # ESTRELLA
+    # ESTRELLA EN LA PUNTA
     estrella_pixels = [
         (2, [17]),
         (3, [16, 17, 18]),
@@ -32,49 +32,41 @@ def crear_arbol_navidad_pixel_art():
 
     arbol[4, 17] = DORADO
 
-    # ARBOL parte superior
-    seccion_superior = [
-        (6, [16, 17, 18]),
-        (7, [15, 16, 17, 18, 19]),
-        (8, [14, 15, 16, 17, 18, 19, 20]),
-        (9, [13, 14, 15, 16, 17, 18, 19, 20, 21]),
-        (10, [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]),
-    ]
-
-    for y, x_positions in seccion_superior:
-        for x in x_positions:
+    # ÁRBOL - Sección superior (usando rangos)
+    centro_x = ancho // 2
+    for i in range(5):
+        y = 6 + i
+        mitad_ancho = (3 + i * 2) // 2
+        x_inicio = centro_x - mitad_ancho
+        x_fin = centro_x + mitad_ancho + 1
+        
+        for x in range(x_inicio, x_fin):
             if 0 <= y < alto and 0 <= x < ancho:
                 arbol[y, x] = VERDE_OSCURO
 
-    # ARBOL en medio
-    seccion_media = [
-        (11, [14, 15, 16, 17, 18, 19, 20]),
-        (12, [13, 14, 15, 16, 17, 18, 19, 20, 21]),
-        (13, [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]),
-        (14, [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]),
-        (15, [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]),
-        (16, [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]),
-    ]
-
-    for y, x_positions in seccion_media:
-        for x in x_positions:
+    # ÁRBOL - Sección media (usando rangos)
+    for i in range(6):
+        y = 11 + i
+        mitad_ancho = (7 + i * 2) // 2
+        x_inicio = centro_x - mitad_ancho
+        x_fin = centro_x + mitad_ancho + 1
+        
+        for x in range(x_inicio, x_fin):
             if 0 <= y < alto and 0 <= x < ancho:
                 arbol[y, x] = VERDE_OSCURO
 
-    # ARBOL en la parte inferior
-    seccion_inferior = [
-        (17, [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]),
-        (18, [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]),
-        (19, [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]),
-        (20, [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]),
-        (21, [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]),
-        (22, [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]),
-        (23, [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]),
-        (24, [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]),
-    ]
-
-    for y, x_positions in seccion_inferior:
-        for x in x_positions:
+    # ÁRBOL - Sección inferior (usando rangos)
+    centro_x = ancho // 2
+    fila_inicio = 17
+    ancho_inicial = 11
+    
+    for i in range(8):
+        y = fila_inicio + i
+        mitad_ancho = (ancho_inicial + i * 2) // 2
+        x_inicio = centro_x - mitad_ancho
+        x_fin = centro_x + mitad_ancho + 1
+        
+        for x in range(x_inicio, x_fin):
             if 0 <= y < alto and 0 <= x < ancho:
                 arbol[y, x] = VERDE_OSCURO
 
