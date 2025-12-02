@@ -104,3 +104,76 @@ Muestra la imagen con los canales reorganizados (RBG en lugar de RGB).
 ```python
 cv.imshow("img3", img3)
 ```
+Espera indefinidamente a que el usuario presione una tecla.
+```python
+cv.waitKey(0)
+````
+Cierra todas las ventanas abiertas por OpenCV.
+```python
+cv.destroyAllWindows()
+```
+
+# Video y canales 
+
+Este código captura video de tu webcam y manipula los canales de color. Te explico cada parte:
+Captura de video
+```python
+cap = cv.VideoCapture(0)  # Abre la cámara (0 = cámara predeterminada)
+```
+Bucle principal
+```python
+while True:
+    ret, img = cap.read()  # Lee un frame de la cámara
+```
+*ret:* booleano que indica si se leyó correctamente
+
+*img:* imagen capturada en formato BGR (Blue, Green, Red)
+
+Separación de canales
+```python
+r, g, b = cv.split(img)  # Separa la imagen en 3 canales
+```
+Divide la imagen en tres matrices separadas, cada una conteniendo la intensidad de un color (azul, verde, rojo).
+
+```python
+img3 = cv.merge([g, b, r])  # Mezcla los canales en OTRO orden
+```
+Aquí está la magia
+
+#### ¿Por qué cambian los colores al reordenar RGB?
+OpenCV usa el formato BGR (no RGB como otros sistemas). Cuando reordenas los canales, estás asignando cada color a una posición diferente:
+Ejemplo visual:
+Original (BGR en OpenCV):
+
+Posición 0 (Blue): canal azul
+
+Posición 1 (Green): canal verde
+
+Posición 2 (Red): canal rojo
+
+Tu código hace [g, b, r]:
+
+Posición 0 (Blue): pones verde 
+
+Posición 1 (Green): pones azul 
+
+Posición 2 (Red): pones rojo 
+
+Entonces:
+
+Lo que debería ser azul → se vuelve verde
+
+Lo que debería ser verde → se vuelve azul
+Lo rojo se mantiene rojo
+
+Ejemplo práctico:
+Si tu camiseta es azul cielo :
+
+Canal azul = alta intensidad
+Canal verde = media intensidad
+Canal rojo = baja intensidad
+
+Al reordenar a [g, b, r], OpenCV interpreta:
+
+Verde (posición Blue) = media → parece cian 
+La camiseta cambia de color completamente
