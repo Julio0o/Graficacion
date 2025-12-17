@@ -10,7 +10,7 @@ def init():
 
     # Configuración de la perspectiva
     glMatrixMode(GL_PROJECTION)
-    gluPerspective(60, 1, 6, 100.0)  # Campo de visión más amplio
+    gluPerspective(60, 1, 10, 100.0)  # Campo de visión más amplio
     glMatrixMode(GL_MODELVIEW)
 
 def draw_cube():
