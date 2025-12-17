@@ -1,6 +1,6 @@
 """
 Entorno 3D Tipo Minecraft con OpenGL
-Incluye 15+ modelos diferentes y control de cámara con transformaciones geométricas
+Incluye modelos diferentes y control de cámara con transformaciones geométricas
 """
 
 import pygame
