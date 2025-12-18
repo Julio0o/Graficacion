@@ -14,7 +14,7 @@ rotated_img = np.zeros((x * 3, y * 3), dtype=np.uint8)
 # Calcular el centro de la imagen original
 cx, cy = x // 2, y // 2
 
-# Definir ángulos de rotación
+# Definir angulos de rotación
 angle1 = 30
 angle2 = 60
 
@@ -25,17 +25,17 @@ theta2 = math.radians(angle2)
 for i in range(x):
     for j in range(y):
 
-        # Primera rotación
+        # Primera rotacion
         new_x1 = int((j - cx) * math.cos(theta1) - (i - cy) * math.sin(theta1) + cx + y)
         new_y1 = int((j - cx) * math.sin(theta1) + (i - cy) * math.cos(theta1) + cy)
 
-        # Segunda rotación
+        # Segunda rotacion
         new_x2 = int((j - cx) * math.cos(theta2) - (i - cy) * math.sin(theta2) + cx + y)
         new_y2 = int((j - cx) * math.sin(theta2) + (i - cy) * math.cos(theta2) + cy + x)
 
 
 
-        # Dibujar píxeles si están dentro del canvas
+        # Dibujar pixeles si estan dentro del canvas
         if 0 <= new_x1 < y * 3 and 0 <= new_y1 < x * 3:
             rotated_img[new_y1, new_x1] = img[i, j]
 

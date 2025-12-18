@@ -69,13 +69,3 @@ Si la distancia es menor a un umbral, el obstáculo intenta alinearse con la pel
 * Si la pelota impacta el obstáculo, se invierte la velocidad horizontal.
 
 
----
-
-## 🚀 Posibles mejoras
-
-* Movimiento aleatorio de la pelota
-* Obstáculo con predicción de trayectoria
-* Sistema de puntuación
-* Múltiples obstáculos
-* Control del obstáculo con teclado
-

@@ -1,7 +1,3 @@
-"""
-Entorno 3D Tipo Minecraft con OpenGL
-Incluye modelos diferentes y control de cámara con transformaciones geométricas
-"""
 
 import pygame
 from pygame.locals import *
@@ -14,7 +10,7 @@ import random
 camera_x, camera_y, camera_z = 0, 5, 20
 camera_rot_x, camera_rot_y = 0, 0
 move_speed = 0.3
-mouse_sensitivity = 0.2
+mouse_sensitivity = 0.08
 
 
 def init_opengl():

@@ -20,7 +20,7 @@ class PinturaVirtual:
         self.color_trazo = (0, 0, 255)  # Rojo en BGR
         self.grosor_trazo = 5
 
-        # ===== NUEVAS VARIABLES PARA MODO FIGURAS =====
+        # VARIABLES PARA MODO FIGURA
         self.modo_figuras = False  # Alternar entre dibujo libre y figuras
         self.tipo_figura = 'circulo'  # 'circulo', 'rectangulo', 'triangulo', 'linea'
         self.tamanio_figura = 50  # Tamaño base de la figura
@@ -200,31 +200,6 @@ class PinturaVirtual:
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.lienzo.shape[1])
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.lienzo.shape[0])
 
-        print("=" * 60)
-        print("CONTROLES GENERALES:")
-        print("  ESPACIO - Alternar dibujo ON/OFF")
-        print("  M - Cambiar modo (Dibujo Libre / Figuras Geométricas)")
-        print("  C - Limpiar lienzo")
-        print("  R - Color rojo")
-        print("  G - Color verde")
-        print("  B - Color azul")
-        print("  Q - Salir")
-        print()
-        print("MODO DIBUJO LIBRE:")
-        print("  + - Aumentar grosor")
-        print("  - - Disminuir grosor")
-        print()
-        print("MODO FIGURAS GEOMÉTRICAS:")
-        print("  1 - Círculo")
-        print("  2 - Rectángulo")
-        print("  3 - Triángulo")
-        print("  4 - Línea")
-        print("  [ - Disminuir tamaño base")
-        print("  ] - Aumentar tamaño base")
-        print("  F - Fijar figura al lienzo (pegar)")
-        print("  Z - Resetear punto de referencia (escala/rotación)")
-        print("=" * 60)
-
         while True:
             ret, frame = cap.read()
             if not ret:
@@ -245,7 +220,7 @@ class PinturaVirtual:
                 cv2.circle(frame, punto, 10, (0, 255, 0), -1)
 
                 if self.modo_figuras:
-                    # ===== MODO FIGURAS =====
+                    # MODO FIGURAS 
                     tamanio, angulo = self.calcular_escalamiento_rotacion(punto)
 
                     # Dibujar preview en el frame
@@ -261,7 +236,7 @@ class PinturaVirtual:
                     modo_texto = f"MODO: FIGURAS - {self.tipo_figura.upper()}"
                     cv2.putText(frame, modo_texto, (10, 30),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 255), 2)
-                    cv2.putText(frame, f"Tamaño: {tamanio} | Ángulo: {int(angulo)}°", (10, 60),
+                    cv2.putText(frame, f"tamano: {tamanio} | Angulo: {int(angulo)}°", (10, 60),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 255), 2)
                 else:
                     # ===== MODO DIBUJO LIBRE =====
@@ -299,16 +274,16 @@ class PinturaVirtual:
                 print(f"Modo cambiado a: {modo}")
             elif key == ord('c'):
                 self.limpiar_lienzo()
-                print("Lienzo limpiado")
+
             elif key == ord('r'):
                 self.cambiar_color_trazo((0, 0, 255))
-                print("Color: ROJO")
+
             elif key == ord('g'):
                 self.cambiar_color_trazo((0, 255, 0))
-                print("Color: VERDE")
+
             elif key == ord('b'):
                 self.cambiar_color_trazo((255, 0, 0))
-                print("Color: AZUL")
+
 
             # Controles específicos del modo
             if self.modo_figuras:
@@ -325,48 +300,34 @@ class PinturaVirtual:
                 elif key == ord('4'):
                     self.tipo_figura = 'linea'
                     print("Figura: LÍNEA")
-                elif key == ord('['):
-                    self.tamanio_figura = max(self.tamanio_figura - 10, 10)
-                    print(f"Tamaño base: {self.tamanio_figura}")
-                elif key == ord(']'):
-                    self.tamanio_figura = min(self.tamanio_figura + 10, 150)
-                    print(f"Tamaño base: {self.tamanio_figura}")
                 elif key == ord('f'):
                     self.figura_fija = True
                     print("Figura fijada al lienzo")
                 elif key == ord('z'):
                     self.punto_referencia = None
                     print("Punto de referencia reseteado")
-            else:
-                # Controles de dibujo libre
-                if key == ord('+') or key == ord('='):
-                    self.grosor_trazo = min(self.grosor_trazo + 2, 30)
-                    print(f"Grosor: {self.grosor_trazo}")
-                elif key == ord('-'):
-                    self.grosor_trazo = max(self.grosor_trazo - 2, 1)
-                    print(f"Grosor: {self.grosor_trazo}")
 
         cap.release()
         cv2.destroyAllWindows()
 
 
-# Ejemplo de uso
+
 if __name__ == "__main__":
     #  AZUL:
     color_bajo = (100, 50, 50)
     color_alto = (130, 255, 255)
 
     #  VERDE:
-    # color_bajo = (40, 50, 50)
-    # color_alto = (80, 255, 255)
+    #color_bajo = (40, 50, 50)
+    #color_alto = (80, 255, 255)
 
     # ROJO a naranja:
-    # color_bajo = (0, 50, 50)
-    # color_alto = (10, 255, 255)
+    #color_bajo = (0, 50, 50)
+    #color_alto = (10, 255, 255)
 
     # ROJO a violeta:
-    # color_bajo = (170, 50, 50)
-    # color_alto = (180, 255, 255)
+    #color_bajo = (170, 50, 50)
+    #color_alto = (180, 255, 255)
 
     pintura = PinturaVirtual(color_bajo, color_alto, ancho=640, alto=480)
     pintura.ejecutar()
