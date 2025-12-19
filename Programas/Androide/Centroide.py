@@ -272,10 +272,3 @@ cv.destroyAllWindows()
 # PREGUNTA DE REFLEXIÓN
 # =============================================================================
 
-print("\n--- PREGUNTA PARA PENSAR ---")
-print("¿Notaste algo interesante sobre dónde quedó el centroide global?")
-print("¿Está exactamente en el centro geométrico del lienzo?")
-print("¿Por qué crees que quedó en esa posición específica?")
-print()
-print("Pista: El centroide se desplaza hacia donde hay más 'masa' de píxeles.")
-print("Si una figura es más grande que las demás, 'atrae' el centroide hacia ella.")

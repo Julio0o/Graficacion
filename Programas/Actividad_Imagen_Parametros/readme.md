@@ -40,3 +40,6 @@ Carga la imagen Arbolito.jpeg desde la carpeta Imagenes.
 |`1`|**Color (BGR)**|Carga la imagen en color (por defecto)|
 |`-1`| **Unchanged**| Carga la imagen con su alpha si lo tiene|
 
+# Evidencia 
+
+![Arbolito](primerin.png)

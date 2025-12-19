@@ -348,3 +348,6 @@ if __name__ == "__main__":
     main()
 ```
 ---
+
+# Evidencia 
+![Blanco y negro](arbol_navidad_pixel_art.png)
